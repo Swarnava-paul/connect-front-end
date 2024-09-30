@@ -1,12 +1,18 @@
 import { useState } from 'react'
 import './App.css'
 
+// allRoutes
+import AllRoutes from './Routes/AllRoutes'
+
+//modals
+import { LoginModal } from './Components/exports'
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-  
+    <AllRoutes/>
+    <LoginModal/>
     </>
   )
 }
