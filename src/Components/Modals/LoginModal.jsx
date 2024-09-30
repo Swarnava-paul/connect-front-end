@@ -8,7 +8,8 @@ const parentStyle = {
     position :'absolute',
     w :'100%',
     justifyContent : "center",
-    alignItems : "center"
+    alignItems : "center",
+    display:"none"
 }
 
   return (

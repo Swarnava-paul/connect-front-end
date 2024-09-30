@@ -10,7 +10,7 @@ const AllRoutes = () => {
   return (
     <Suspense fallback={<></>}>
      <Routes>
-        <Route path='/dashboard' element={<HomePage/>}/>
+        <Route path='/' element={<HomePage/>}/>
         <Route path="*" element={<>Page not Found Component...</>}/>
      </Routes>
     </Suspense>

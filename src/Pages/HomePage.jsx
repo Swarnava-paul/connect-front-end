@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
+import { SideBar , MainSection} from "../Components/exports";
 
 const HomePage = () => {
 
@@ -41,10 +42,10 @@ const HomePage = () => {
 
 
   return (
-    <div>
-      sideBar
-      Main Section
-    </div> /* only display this Home page  if redux auth state is true  and also display a loader is loading state will true */
+    <>
+      <SideBar/>
+      <MainSection/>
+    </> /* only display this Home page  if redux auth state is true  and also display a loader is loading state will true */
   )
 }
 
