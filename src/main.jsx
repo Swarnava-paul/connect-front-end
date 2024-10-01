@@ -5,15 +5,20 @@ import './index.css'
 
 import { BrowserRouter } from 'react-router-dom'
 
+import { Provider } from 'react-redux'
+import store from './App/ReduxStore.jsx'
+
 //context
 import { DynamicComponentProvider } from './Components/DynamicComponentControl/DynamicComponentController.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-    <DynamicComponentProvider>
-        <App />
-    </DynamicComponentProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <DynamicComponentProvider>
+          <App />
+        </DynamicComponentProvider>
+      </BrowserRouter>
+    </Provider>
   </StrictMode>,
 )
