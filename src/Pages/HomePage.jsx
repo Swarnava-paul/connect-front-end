@@ -13,6 +13,7 @@ const HomePage = () => {
   // we will redirect to /dashboard then get the token value from url and store first in localStorage
   // then call the getUserinfo function
 
+  const {isAuthenticated, loading} = useSelector((state) => state.auth)
 
   const checkTokenIsPresentOrNot = () => {
     // this function will check is token is present ot not in localStorage
@@ -27,7 +28,7 @@ const HomePage = () => {
     }
   }
 
-  const getUserInfo = async () => {
+  const getUserInfo = async (token) => {
    // this function will send a get request to an api with token and in response get user info like
    // name , email etc...
    // display a loading untill this request will complete
@@ -58,16 +59,24 @@ const HomePage = () => {
   useEffect(()=>{
    if (tokenFromUrl != null || tokenFromUrl != undefined) {
      localStorage.setItem(JSON.stringify('token',tokenFromUrl))
-     getUserInfo();
+     dispatch(setToken(tokenFromUrl))
+     getUserInfo(tokenFromUrl);
    }
   },[tokenFromUrl])
 
+  if(loading) {
+    return <div>Loading...</div>
+  }
+
+  if(!isAuthenticated){
+    return <div>Please log in to access this page</div>
+  }
 
   return (
     <>
       <SideBar/>
       <MainSection/>
-    </> /* only display this Home page  if redux auth state is true  and also display a loader is loading state will true */
+    </> /* only display this Home page  if redux auth state is true  and also display a loader is loading state is true */
   )
 }
 
