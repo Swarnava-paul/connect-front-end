@@ -1,8 +1,10 @@
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-router-dom'
-import { SideBar , MainSection} from "../Components/exports";
-import { setLoading, setToken, setUser } from "../App/slices/authSlice";
+import { SideBar , MainSection, LoginModal} from "../Components/exports";
+import { setToken, setUser } from "../App/slices/authSlice";
+import { showLoading, hideLoading } from '../App/slices/loadingSlice';
+import LoadingModal from '../Components/Modals/LoadingModal'
 
 const HomePage = () => {
 
@@ -13,7 +15,8 @@ const HomePage = () => {
   // we will redirect to /dashboard then get the token value from url and store first in localStorage
   // then call the getUserinfo function
 
-  const {isAuthenticated, loading} = useSelector((state) => state.auth)
+  const {isAuthenticated, userInfo} = useSelector((state) => state.auth)
+  const loading = useSelector((state) => state.loading.isLoading);
 
   const checkTokenIsPresentOrNot = () => {
     // this function will check is token is present ot not in localStorage
@@ -25,6 +28,7 @@ const HomePage = () => {
       getUserInfo(token)
     }else{
       // display loginModal
+      <LoginModal/>
     }
   }
 
@@ -34,17 +38,20 @@ const HomePage = () => {
    // display a loading untill this request will complete
    // after response get we need to store user name email in a redux state 
    // and redux auth state to true
-   dispatch(setLoading(true))
+   dispatch(showLoading())
    try{
     const response = await fetch('/api/userinfo', {
       headers: {Authorization: `Bearer ${token}`},
     })
     const data = await response.json()
-    dispatch(setUser(data))
+
+    const {name, timeZone, sharableLink} = data
+    dispatch(setUser({name, timeZone, sharableLink}))
+
    }catch(error){
     console.error('Error fetching user info: ', error)
    }finally{
-    dispatch(setLoading(false))
+    dispatch(hideLoading())
    }
   }
 
@@ -65,7 +72,7 @@ const HomePage = () => {
   },[tokenFromUrl])
 
   if(loading) {
-    return <div>Loading...</div>
+    return <LoadingModal/>
   }
 
   if(!isAuthenticated){
@@ -76,6 +83,9 @@ const HomePage = () => {
     <>
       <SideBar/>
       <MainSection/>
+      <div>Welcome, {userInfo.name}</div>
+      <div>Time Zone: {userInfo.timeZone}</div>
+      <div>Sharable Link: {userInfo.sharableLink}</div>
     </> /* only display this Home page  if redux auth state is true  and also display a loader is loading state is true */
   )
 }
