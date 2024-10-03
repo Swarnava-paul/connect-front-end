@@ -1,6 +1,11 @@
 import { Box, Button, Center,Flex,  Heading, Image, VStack , Grid } from '@chakra-ui/react';
 
+import { useSelector } from 'react-redux';
+
 const LoginModal = () => {
+
+const loginModalDisplay = useSelector((state) => state.slice.LoginModalDisplay);
+
 
 const parentStyle = {
     backgroundColor :'rgb(0, 0, 0,0.3)',
@@ -9,7 +14,7 @@ const parentStyle = {
     w :'100%',
     justifyContent : "center",
     alignItems : "center",
-    display:"none"
+    display:loginModalDisplay
 }
 
   return (

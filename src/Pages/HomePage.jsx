@@ -1,20 +1,25 @@
-import { useEffect } from "react"
+import { useEffect} from "react"
 import { useLocation } from "react-router-dom"
 import { SideBar , MainSection} from "../Components/exports";
 
 const HomePage = () => {
 
+
   const location = useLocation();
   const queryParam = new URLSearchParams(location.search);
 
-  const tokenFromUrl = queryParam.get('token'); // get token value from front-end url useful when after sign up or login
-  // we will redirect to /dashboard then get the token value from url and store first in localStorage
-  // then call the getUserinfo function
+  const tokenFromUrl = queryParam.get('token'); // get token from url 
 
   const checkTokenIsPresentOrNot = () => {
     // this function will check is token is present ot not in localStorage
     // if token is present it will call a function getUserInfo
     // if no token display loginModal
+    const token = localStorage.getItem('token')
+    if(token){
+      getUserInfo(token);
+    } else {
+      // display login modal
+    }
   }
 
   const getUserInfo = async () => {
@@ -23,6 +28,8 @@ const HomePage = () => {
    // display a loading untill this request will complete
    // after response get we need to store user name email in a redux state 
    // and redux auth state to true
+   // in case in error remove token from localStorage and display loginModal
+
   }
 
 
