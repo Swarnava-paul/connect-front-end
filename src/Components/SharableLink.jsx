@@ -1,5 +1,5 @@
 
-const GenerateSharableLink = () => {
+const SharableLink = () => {
   return (
     <>
       <h1>Generate sharable link component</h1>
@@ -7,4 +7,4 @@ const GenerateSharableLink = () => {
   )
 }
 
-export default GenerateSharableLink
+export default SharableLink

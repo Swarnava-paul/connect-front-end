@@ -1,6 +1,7 @@
 import { useEffect} from "react"
 import { useLocation } from "react-router-dom"
 import { SideBar , MainSection} from "../Components/exports";
+import { Flex } from "@chakra-ui/react";
 
 const HomePage = () => {
 
@@ -49,10 +50,10 @@ const HomePage = () => {
 
 
   return (
-    <>
+    <Flex gap={10}>
       <SideBar/>
       <MainSection/>
-    </> /* only display this Home page  if redux auth state is true  and also display a loader is loading state will true */
+    </Flex> /* only display this Home page  if redux auth state is true  and also display a loader is loading state will true */
   )
 }
 

@@ -2,12 +2,12 @@
 import { createContext , useReducer } from "react";
 
 //components
-import {CreateAvailability,GenerateSharableLink,
-ViewMeetings,ManageAccount,CustomizeBookingPage,
-WelcomeMessage
+import {CreateAvailability,SharableLink,
+ViewMeetings,
+WelcomeMessage,TimeZone
 } from '../exports'
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export const DynamicComponentContext = createContext();
 
 function returnDynamicComponent (state,action) {
@@ -18,17 +18,14 @@ function returnDynamicComponent (state,action) {
     case 'CreateAvailability' : {
         return CreateAvailability
     }
-    case 'GenerateSharableLink':{
-        return GenerateSharableLink
+    case 'SharableLink':{
+        return SharableLink
     }
     case 'ViewMeetings':{
         return ViewMeetings
     }
-    case 'ManageAccount':{
-        return ManageAccount
-    }
-    case 'CustomizeBookingPage':{
-        return CustomizeBookingPage
+    case 'TimeZone':{
+        return TimeZone
     }
  }
 }
