@@ -1,15 +1,14 @@
-import React  from "react"
-import { DynamicComponentContext } from "../DynamicComponentControl/DynamicComponentController"
+import React from "react";
+import { DynamicComponentContext } from "../DynamicComponentControl/DynamicComponentController";
 
 const MainSection = () => {
-
-  const {Component} = React.useContext(DynamicComponentContext);
+  const { Component } = React.useContext(DynamicComponentContext);
 
   return (
     <>
-    <Component/>
+      <Component />
     </>
-  )
-}
+  );
+};
 
-export default MainSection
+export default MainSection;
