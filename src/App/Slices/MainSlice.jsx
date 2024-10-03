@@ -40,7 +40,7 @@ const reduxSlice = createSlice({
         },
 
         displayLoadingModal : (state) => {
-            state.LoadingModalDisplay = 'block'
+            state.LoadingModalDisplay = 'flex'
         },
 
         hideLoadingModal : (state) => {

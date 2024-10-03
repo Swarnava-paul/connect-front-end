@@ -21,7 +21,7 @@ const SideBar = () => {
    width:"20%",
    height:"100vh",
    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-   
+
   };
 
   const arrButtons = {

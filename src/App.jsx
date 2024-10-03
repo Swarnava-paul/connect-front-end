@@ -5,7 +5,7 @@ import './App.css'
 import AllRoutes from './Routes/AllRoutes'
 
 //modals
-import { LoginModal } from './Components/exports'
+import { LoginModal , LoadingModal} from './Components/exports'
 
 function App() {
 
@@ -13,6 +13,7 @@ function App() {
     <>
     <AllRoutes/>
     <LoginModal/>
+    <LoadingModal/>
     </>
   )
 }

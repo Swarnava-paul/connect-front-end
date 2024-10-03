@@ -5,12 +5,13 @@ import { useSelector } from 'react-redux';
 const LoginModal = () => {
 
 const loginModalDisplay = useSelector((state) => state.slice.LoginModalDisplay);
-
+const googleSignInPageUrl = import.meta.env.VITE_GOOGLE_SIGNIN_PAGE;
 
 const parentStyle = {
     backgroundColor :'rgb(0, 0, 0,0.3)',
     h :'100vh',
     position :'absolute',
+    top:"0%",
     w :'100%',
     justifyContent : "center",
     alignItems : "center",
@@ -19,9 +20,9 @@ const parentStyle = {
 
   return (
    <Flex sx={parentStyle}>
-     <Center h="100%" w='100%' borderRadius={30} bg='white'>
+     <Center h="100%" w='100%' bg='white'>
     <VStack spacing='40px'>
-     <Heading fontFamily='sans-serif' fontSize={30} color='#40679E'>Connect</Heading>
+     <Heading fontFamily='sans-serif' fontSize={30} color='#40679E'>UniConn</Heading>
       <Grid fontFamily='sans-serif' rowGap={8} fontSize={23} fontWeight='400' color='grey' textAlign='center'>
         <p>Platform That Makes Booking One to One session </p>
         <p>Anywhere in the World Easy!</p>
@@ -47,6 +48,8 @@ const parentStyle = {
         bg="#4285F4"
         color="white"
         _hover={{ bg: '#357ae8' }}
+        // eslint-disable-next-line no-undef
+        onClick={()=>window.location.href = googleSignInPageUrl}
       >
        Continue With Google
       </Button>
