@@ -2,7 +2,7 @@ import React from "react";
 import { Grid , Button , Text , Flex, border} from "@chakra-ui/react"
 import { DynamicComponentContext } from "../DynamicComponentControl/DynamicComponentController";
 import { useState  } from "react";
-
+import { Link } from "react-router-dom";
 // icons
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsCalendar3 , BsLink45Deg , BsClockHistory , BsShieldCheck} from "react-icons/bs";
@@ -68,7 +68,7 @@ const SideBar = () => {
         ))
       }
       </Grid>
-      <Flex sx={arrButtons}><BsShieldCheck/>Privacy Policy & Security</Flex>
+      <Flex sx={arrButtons}><BsShieldCheck/><Link style={{textDecoration:"none"}} to='/privacy&policy'>Privacy Policy & Security</Link></Flex>
     </Grid>
   )
 }
