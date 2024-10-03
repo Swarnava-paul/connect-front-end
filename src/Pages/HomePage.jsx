@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect} from "react"
 import { useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-router-dom'
 import { SideBar , MainSection, LoginModal} from "../Components/exports";
@@ -14,6 +14,7 @@ const HomePage = () => {
   const tokenFromUrl = queryParam.get('token'); // get token value from front-end url useful when after sign up or login
   // we will redirect to /dashboard then get the token value from url and store first in localStorage
   // then call the getUserinfo function
+
 
   const {isAuthenticated, userInfo} = useSelector((state) => state.auth)
   const loading = useSelector((state) => state.loading.isLoading);
@@ -80,13 +81,13 @@ const HomePage = () => {
   }
 
   return (
-    <>
+    <Flex gap={10}>
       <SideBar/>
       <MainSection/>
       <div>Welcome, {userInfo.name}</div>
       <div>Time Zone: {userInfo.timeZone}</div>
       <div>Sharable Link: {userInfo.sharableLink}</div>
-    </> /* only display this Home page  if redux auth state is true  and also display a loader is loading state is true */
+    </Flex> /* only display this Home page  if redux auth state is true  and also display a loader is loading state is true */
   )
 }
 

@@ -11,6 +11,7 @@ Pages :
                  3. Generate Sharable Link
                  4. Customize Booking Page
                  5. Manage Account
+                 6. WelcomeMessage - https://www.figma.com/slides/SPvieGUJ5wCFtjbNVUnPJt/Untitled?node-id=1-380&t=OZiVZM0QyOeb2CdY-1
 
 2. Page that Handles Wrong Routes by displaying seems like page is not found
 

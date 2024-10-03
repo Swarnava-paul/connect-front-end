@@ -4,13 +4,14 @@ import { Suspense } from "react"
 
 // pages
 const HomePage  = React.lazy(()=> import('../Pages/HomePage'));
-
+const ViewSharableLink = React.lazy(()=> import('../Pages/ViewSharableLink'))
 
 const AllRoutes = () => {
   return (
     <Suspense fallback={<></>}>
      <Routes>
         <Route path='/' element={<HomePage/>}/>
+        <Route path="/viewSharable" element={<ViewSharableLink/>}/>
         <Route path="*" element={<>Page not Found Component...</>}/>
      </Routes>
     </Suspense>
