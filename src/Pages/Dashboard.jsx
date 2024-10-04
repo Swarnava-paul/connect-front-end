@@ -1,7 +1,7 @@
 import { useEffect} from "react"
 import { useLocation } from "react-router-dom"
 import { SideBar , MainSection, SharableLink} from "../Components/exports";
-import { Flex } from "@chakra-ui/react";
+import { Flex , Box} from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { displayLoginModal , hideLoadingModal 
 , displayLoadingModal, authenticationSuccess,setUserInfo
@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 
-const HomePage = () => {
+const Dashboard = () => {
   const getUserInfoUrl = import.meta.env.VITE_Get_User_Info_APi_Url;
 
   const location = useLocation();
@@ -94,4 +94,4 @@ const HomePage = () => {
 
 /* only display this Home page  if redux auth state is true  and also display a loader is loading state will true */
 
-export default HomePage
+export default Dashboard;

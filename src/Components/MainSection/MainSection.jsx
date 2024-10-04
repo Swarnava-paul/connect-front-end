@@ -6,7 +6,7 @@ const MainSection = () => {
   const {Component} = React.useContext(DynamicComponentContext);
 
   return (
-    <Box alignContent='center' w='80%'>
+    <Box w={['100%','100%','100%','80%']}>
     <Component/>
     </Box>
   )

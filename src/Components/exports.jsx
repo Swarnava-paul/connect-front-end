@@ -9,10 +9,11 @@ import SharableLink from './SharableLink'
 import ViewMeetings from './ViewMeetings'
 import WelcomeMessage from "./WelcomeMessage";
 import TimeZone from './TimeZone'
+import HamburgerIcon from "./HamburgerIcon";
 
 export {
 LoginModal,SideBar,
 MainSection,CreateAvailability,
 SharableLink,ViewMeetings,
 WelcomeMessage,TimeZone,LoadingModal,
-GenerateSharableLinkModal}
+GenerateSharableLinkModal,HamburgerIcon}

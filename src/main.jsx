@@ -4,6 +4,8 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 
+// chakra Provider
+import { ChakraBaseProvider } from '@chakra-ui/react'
 //redux store
 import {store} from './App/ReduxStore.jsx'
 
@@ -17,7 +19,9 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
     <DynamicComponentProvider>
       <Provider store={store}>
+        <ChakraBaseProvider>
         <App />
+        </ChakraBaseProvider>
       </Provider>
     </DynamicComponentProvider>
     </BrowserRouter>

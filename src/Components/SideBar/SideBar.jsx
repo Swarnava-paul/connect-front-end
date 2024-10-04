@@ -1,16 +1,21 @@
 import React from "react";
-import { Grid , Button , Text , Flex, border, position} from "@chakra-ui/react"
+import { Grid , Button , Text , Flex, border, position , Box} from "@chakra-ui/react"
 import { DynamicComponentContext } from "../DynamicComponentControl/DynamicComponentController";
 import { useState  } from "react";
 import { Link } from "react-router-dom";
 // icons
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsCalendar3 , BsLink45Deg , BsClockHistory , BsShieldCheck} from "react-icons/bs";
+//redux
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
 
   // context
   const {requestDynamicComponent} = React.useContext(DynamicComponentContext);
+  // redux
+  const sideBarDisplay = useSelector((state)=>state.slice.sideBarDisplay);
+  
   const [previousEvent,setPreviousEvent] = useState()
   const arr = [
     {name:'Meetings',dispatch:"ViewMeetings",Icon:BsCalendar3},
@@ -18,10 +23,13 @@ const SideBar = () => {
     {name:'TimeZone',dispatch:"TimeZone",Icon:BsClockHistory}
   ]
   const parentGrid = {
-   width:"20%",
+   width:['100%','100%','100%','23%'],
+   backgroundColor:'white',
    height:"100vh",
    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-  };
+   display : [sideBarDisplay,sideBarDisplay,sideBarDisplay,'grid','grid'],
+   position:['absolute','absolute','absolute','static']
+  }; /// parent grid styles
 
   const arrButtons = {
   paddingLeft:"10px",
@@ -47,12 +55,12 @@ const SideBar = () => {
   }
 
   return (
-    <Grid sx={parentGrid}>
-     <Button gap={10} fontSize={15} margin='auto' h='8vh' color='white' mt={20} borderRadius={20} bg='RGB(0, 96, 230)'w='90%' border='none'>
+     <Grid sx={parentGrid}>
+     <Button gap={2} margin='auto' h='8vh' color='white' mt={[20,20,20,10]} borderRadius={20} bg='RGB(0, 96, 230)'w='90%' border='none'>
         <AiOutlinePlus />
         Create Availability Slot
       </Button>
-      <Grid h='auto' mt='-50%'>
+      <Grid h='auto'   mt={['-20%','-20%','-10%','-50%']}>
       {
         arr.map(({name,dispatch,Icon},index)=>(
           <Flex key={index} sx={arrButtons} color='black'

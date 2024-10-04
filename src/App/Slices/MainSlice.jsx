@@ -10,7 +10,8 @@ UserInfo : {
 },
 LoginModalDisplay : 'none',
 LoadingModalDisplay : 'none',
-SharableLinkDisplay : 'none'
+SharableLinkDisplay : 'none',
+sideBarDisplay : 'none',
 };
 
 const reduxSlice = createSlice({
@@ -56,6 +57,12 @@ const reduxSlice = createSlice({
         },
         setSharableLink : (state,action) => {
             state.UserInfo.sharableLink = action.payload
+        },
+        displaySideBar : (state) => {
+            state.sideBarDisplay = 'grid';
+        },
+        hideSideBar : (state) => {
+            state.sideBarDisplay = 'none'
         }
     }
 })
@@ -65,6 +72,7 @@ export const {authenticationSuccess,setUserInfo,
 displayLoginModal,hideLoginModal,
 displayLoadingModal,hideLoadingModal,
 displaySharableLinkModal,hideSharableLinkModal,
-setSharableLink} = reduxSlice.actions
+setSharableLink,displaySideBar,
+hideSideBar} = reduxSlice.actions
 
 export default reduxSlice.reducer;

@@ -20,15 +20,16 @@ const WelcomeMessage = () => {
   },[])
 
   const text = {
-    fontSize:"70px",
+    fontSize:['31px','50px','50px','60px'],
     fontFamily:"sans-serif",
-    fontWeight:"600"
+    fontWeight:"600",
+
   }
 
   return (
-    <Grid w='100%'
-    height='40vh' justifyContent='center' margin='auto'>
-     <Flex gap={14}>
+    <Grid 
+    height={['20vh','20vh','20vh','40vh']} justifyContent='center' mt={['34%','24%','17%','14%']} p={4}>
+     <Flex gap={[3,3,3,3]}>
       <Text sx={text}>Hi</Text>
       <Text sx={text} color='#6351D3'>{userName}</Text>
       </Flex>
@@ -37,9 +38,9 @@ const WelcomeMessage = () => {
         <Image w='35%' mt='2%' src='https://uniconn.co.in/images/Logo.svg'/>
       </Flex>
       <br />
-      <Flex gap={15} align='center'>
-       <Text fontSize={34} fontFamily='sans-serif' fontWeight='600' color='#73777C'>Getting Started by</Text>
-       <Button border='none' w='8rem' h='7vh' borderRadius={5} bg='#4C9FEB' fontSize='1rem' color='white'>Creating Slots</Button>
+      <Flex gap={4} align='center'>
+       <Text fontSize={[20,20,20,34]} fontFamily='sans-serif' fontWeight='600' color='#73777C'>Getting Started by</Text>
+       <Button pos='static' border='none' w='8rem' h='7vh' borderRadius={5} bg='#4C9FEB' fontSize='1rem' color='white'>Creating Slots</Button>
       </Flex>
     </Grid>
   )

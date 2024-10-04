@@ -6,7 +6,7 @@ import AllRoutes from './Routes/AllRoutes'
 
 //modals
 import { LoginModal , LoadingModal ,
-GenerateSharableLinkModal
+GenerateSharableLinkModal,HamburgerIcon
 } from './Components/exports'
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
   return (
     <>
     <AllRoutes/>
+    <HamburgerIcon/>
     <LoginModal/>
     <LoadingModal/>
     <GenerateSharableLinkModal/>
