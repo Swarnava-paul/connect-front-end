@@ -7,7 +7,7 @@ const GeneratesharableLinkModalDisplay = useSelector((state)=>state.SharableLink
 
 
   return (
-    <Flex display={GeneratesharableLinkModalDisplay}  position='absolute' top='0%' w='100%' h='100vh'
+    <Flex /*display={GeneratesharableLinkModalDisplay}*/ display='none'  position='absolute' top='0%' w='100%' h='100vh'
     justify='center' align='center' bg='rgb(0, 0, 0 , 0.8)'>
        <Box bg='white' w='40%'  borderRadius={10} display='grid' h='40vh' p={20} placeItems='center'>
         <Text textAlign='center' fontFamily='sans-serif' fontSize={14} mt={30}>
