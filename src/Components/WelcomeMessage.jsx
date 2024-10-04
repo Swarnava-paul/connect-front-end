@@ -1,7 +1,7 @@
 import { useSelector , useDispatch } from "react-redux"
 import { Flex,Text,Grid,Image,Button} from "@chakra-ui/react"
 import { useEffect } from "react"
-import { displaySharableLinkModal } from "../App/Slices/MainSlice"
+import { displaySharableLinkModal} from "../App/Slices/MainSlice"
 
 const WelcomeMessage = () => {
   const userName = useSelector((state)=>state.slice.UserInfo.name)
@@ -17,7 +17,7 @@ const WelcomeMessage = () => {
       // display generate sharable link modal
       dispatch(displaySharableLinkModal())
     }
-  })
+  },[])
 
   const text = {
     fontSize:"70px",
@@ -26,8 +26,8 @@ const WelcomeMessage = () => {
   }
 
   return (
-    <Grid w='60%'
-    height='40vh' margin='auto'>
+    <Grid w='100%'
+    height='40vh' justifyContent='center' margin='auto'>
      <Flex gap={14}>
       <Text sx={text}>Hi</Text>
       <Text sx={text} color='#6351D3'>{userName}</Text>

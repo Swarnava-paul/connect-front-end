@@ -65,6 +65,7 @@ const HomePage = () => {
   }
 
 
+
   useEffect(()=>{
     if(!tokenFromUrl) {
       checkTokenIsPresentOrNot()
@@ -73,10 +74,12 @@ const HomePage = () => {
 
   useEffect(()=>{
    if (tokenFromUrl != null || tokenFromUrl != undefined) {
-     localStorage.setItem('token',tokenFromUrl)
-     getUserInfo(tokenFromUrl);
+     localStorage.setItem('token',tokenFromUrl);
+     getUserInfo(tokenFromUrl)
    }
   },[tokenFromUrl])
+
+  
 
 
   return (

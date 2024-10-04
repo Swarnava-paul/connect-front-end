@@ -49,10 +49,13 @@ const reduxSlice = createSlice({
         },
 
         displaySharableLinkModal : (state) => {
-            state.SharableLinkDisplay = 'block'
+            state.SharableLinkDisplay = 'flex'
         },
         hideSharableLinkModal : (state)=> {
             state.SharableLinkDisplay = 'none'
+        },
+        setSharableLink : (state,action) => {
+            state.UserInfo.sharableLink = action.payload
         }
     }
 })
@@ -61,6 +64,7 @@ const reduxSlice = createSlice({
 export const {authenticationSuccess,setUserInfo,
 displayLoginModal,hideLoginModal,
 displayLoadingModal,hideLoadingModal,
-displaySharableLinkModal,hideSharableLinkModal} = reduxSlice.actions
+displaySharableLinkModal,hideSharableLinkModal,
+setSharableLink} = reduxSlice.actions
 
 export default reduxSlice.reducer;

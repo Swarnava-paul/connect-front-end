@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid , Button , Text , Flex, border} from "@chakra-ui/react"
+import { Grid , Button , Text , Flex, border, position} from "@chakra-ui/react"
 import { DynamicComponentContext } from "../DynamicComponentControl/DynamicComponentController";
 import { useState  } from "react";
 import { Link } from "react-router-dom";
@@ -21,7 +21,6 @@ const SideBar = () => {
    width:"20%",
    height:"100vh",
    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-
   };
 
   const arrButtons = {
