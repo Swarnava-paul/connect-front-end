@@ -9,7 +9,8 @@ UserInfo : {
    sharableLink : ""
 },
 LoginModalDisplay : 'none',
-LoadingModalDisplay : 'none'
+LoadingModalDisplay : 'none',
+SharableLinkDisplay : 'none'
 };
 
 const reduxSlice = createSlice({
@@ -45,6 +46,13 @@ const reduxSlice = createSlice({
 
         hideLoadingModal : (state) => {
             state.LoadingModalDisplay = 'none'
+        },
+
+        displaySharableLinkModal : (state) => {
+            state.SharableLinkDisplay = 'block'
+        },
+        hideSharableLinkModal : (state)=> {
+            state.SharableLinkDisplay = 'none'
         }
     }
 })
@@ -52,6 +60,7 @@ const reduxSlice = createSlice({
 
 export const {authenticationSuccess,setUserInfo,
 displayLoginModal,hideLoginModal,
-displayLoadingModal,hideLoadingModal} = reduxSlice.actions
+displayLoadingModal,hideLoadingModal,
+displaySharableLinkModal,hideSharableLinkModal} = reduxSlice.actions
 
 export default reduxSlice.reducer;

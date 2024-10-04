@@ -5,7 +5,9 @@ import './App.css'
 import AllRoutes from './Routes/AllRoutes'
 
 //modals
-import { LoginModal , LoadingModal} from './Components/exports'
+import { LoginModal , LoadingModal ,
+GenerateSharableLinkModal
+} from './Components/exports'
 
 function App() {
 
@@ -14,6 +16,7 @@ function App() {
     <AllRoutes/>
     <LoginModal/>
     <LoadingModal/>
+    <GenerateSharableLinkModal/>
     </>
   )
 }
