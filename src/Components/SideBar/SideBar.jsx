@@ -56,7 +56,9 @@ const SideBar = () => {
 
   return (
      <Grid sx={parentGrid}>
-     <Button gap={2} margin='auto' h='8vh' color='white' mt={[20,20,20,10]} borderRadius={20} bg='RGB(0, 96, 230)'w='90%' border='none'>
+     <Button gap={2} margin='auto' h='8vh'
+      color='white' mt={[20,20,20,10]} borderRadius={20} 
+      bg='RGB(0, 96, 230)'w='90%' border='none' onClick={()=>requestDynamicComponent({type:'CreateAvailability'})}>
         <AiOutlinePlus />
         Create Availability Slot
       </Button>
