@@ -13,22 +13,38 @@ import {
 const Section_2 = () => {
   return (
     <Box flexGrow={1}>
-      <Center>
-        <Text fontFamily={"sans-serif"} fontSize={"32px"} fontWeight={"bold"}>
+      <Center mb={{ base: "40px", lg: 20 }}>
+        <Text 
+          fontFamily={"sans-serif"} 
+          fontWeight={"bold"}
+          fontSize={{
+            base: "20px",
+            sm: "22px",
+            md: "28px",
+            lg: "32px",
+          }} 
+        >
           How We Use Your Data
         </Text>
       </Center>
 
-      <Flex
+      <Flex 
+        flexDirection={{ base: "column-reverse", md: "row" }}
         alignItems={"center"}
         justifyContent={"space-between"}
         columnGap={2}
+        mb={{ base: 20, lg: 100 }}
       >
         <Box>
           <Text
             fontFamily={"sans-serif"}
-            fontSize={"15px"}
-            fontWeight={"700"}
+            fontSize={{
+              base: "12px",
+              sm: "13px",
+              md: "15px",
+              lg: "16px",
+            }}
+            fontWeight={"600"}
             mt={2}
           >
             We use information we collect solely to provide, improve, and
@@ -36,10 +52,16 @@ const Section_2 = () => {
           </Text>
           <Divider mt={4} mb={15} />
           <UnorderedList
-            lineHeight={2}
+            lineHeight={{ base: "26px", sm: "28px", lg: "40px" }}
             fontFamily={"sans-serif"}
-            fontSize={"15px"}
             fontWeight={"700"}
+            fontSize={{
+              base: "12px",
+              sm: "13px",
+              md: "15px",
+              lg: "16px",
+            }}
+            mt={{ base: 10, md: 0 }}
           >
             <ListItem>Facilitate one-on-one session bookings.</ListItem>
             <ListItem>
@@ -52,27 +74,43 @@ const Section_2 = () => {
         </Box>
         <Image
           src="https://img.freepik.com/free-vector/appointment-booking-with-woman-smartphone_23-2148557484.jpg?ga=GA1.1.445490132.1727162141&semt=ais_hybrid"
-          boxSize="350px"
+          boxSize={{ base: "270px", lg: "350px" }}
           objectFit="cover"
         />
       </Flex>
 
-      <Center mt={10}>
-        <Text fontFamily={"sans-serif"} fontSize={"32px"} fontWeight={"bold"}>
+      <Center mb={{ base: "40px", lg: 20 }}>
+        <Text 
+          fontFamily={"sans-serif"} 
+          fontSize={{
+              base: "20px",
+              sm: "22px",
+              md: "28px",
+              lg: "32px",
+          }} 
+          fontWeight={"bold"}
+        >
           Google Calendar Access
         </Text>
       </Center>
 
-      <Flex
+      <Flex 
+        flexDirection={{ base: "column-reverse", md: "row" }}
         alignItems={"center"}
         justifyContent={"space-between"}
         columnGap={2}
+        mb={{ base: 20, lg: 100 }}
       >
         <Box>
           <Text
             fontFamily={"sans-serif"}
-            fontSize={"15px"}
-            fontWeight={"700"}
+            fontSize={{
+              base: "12px",
+              sm: "13px",
+              md: "15px",
+              lg: "16px",
+            }}
+            fontWeight={"600"}
             mt={2}
           >
             When you connect your Google Calendar, we request the minimum
@@ -80,10 +118,16 @@ const Section_2 = () => {
           </Text>
           <Divider mt={4} mb={15} />
           <UnorderedList
-            lineHeight={10}
+            lineHeight={{ base: "26px", sm: "28px", lg: "40px" }}
             fontFamily={"sans-serif"}
-            fontSize={"15px"}
-            fontWeight={"700"}
+            fontSize={{
+              base: "12px",
+              sm: "13px",
+              md: "15px",
+              lg: "16px",
+            }}
+            fontWeight={"600"}
+            mt={{ base: 10, md: 0 }}
           >
             <ListItem>View and create events on your behalf.</ListItem>
             <ListItem>
@@ -96,7 +140,7 @@ const Section_2 = () => {
         </Box>
         <Image
           src="https://img.freepik.com/free-vector/appointment-booking-smartphone_23-2148559902.jpg?ga=GA1.1.445490132.1727162141&semt=ais_hybrid"
-          boxSize="350px"
+          boxSize={{ base: "270px", lg: "350px" }}
           objectFit="cover"
         />
       </Flex>

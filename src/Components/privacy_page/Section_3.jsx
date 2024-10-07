@@ -14,18 +14,38 @@ import Img_1 from "../../assets/cloud-storage-idea-online-comput.webp";
 
 const Section_3 = () => {
   return (
-    <Box flexGrow={1}>
-      <Center mb={20}>
-        <Text fontFamily={"sans-serif"} fontSize={"32px"} fontWeight={"bold"}>
-          Data Sharing , Disclosure & Security
+    <Box flexGrow={1} mb={{ base: 20 }}>
+      <Center mb={{ base: "40px", lg: 20 }}>
+        <Text
+          fontFamily={"sans-serif"}
+          fontSize={{
+            base: "20px",
+            sm: "22px",
+            md: "28px",
+            lg: "32px",
+          }}
+          fontWeight={"bold"}
+        >
+          Data Sharing,Disclosure & Security
         </Text>
       </Center>
-      <Flex alignItems={"center"} justifyContent={"space-between"} mb={100}>
+      <Flex
+        flexDirection={{ base: "column-reverse", md: "row" }}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        mb={{ base: 20, lg: 100 }}
+      >
         <UnorderedList
           fontFamily={"sans-serif"}
-          fontSize={"16px"}
-          fontWeight={"700"}
-          lineHeight={10}
+          fontSize={{
+            base: "12px",
+            sm: "13px",
+            md: "15px",
+            lg: "16px",
+          }}
+          fontWeight={"600"}
+          mt={{ base: 10, md: 0 }}
+          lineHeight={{ base: "26px", sm: "28px", lg: "40px" }}
         >
           <ListItem>
             UniConn does not share, sell, or transfer your personal data to any
@@ -43,19 +63,42 @@ const Section_3 = () => {
             adhere to strong data protection standards.
           </ListItem>
         </UnorderedList>
-        <Image src={Img} boxSize="350px" objectFit="cover" />
+        <Image
+          src={Img}
+          boxSize={{ base: "270px", lg: "350px" }}
+          objectFit="cover"
+        />
       </Flex>
-      <Center mb={20}>
-        <Text fontFamily={"sans-serif"} fontSize={"32px"} fontWeight={"bold"}>
+      <Center mb={{ base: "40px", lg: 20 }}>
+        <Text
+          fontFamily={"sans-serif"}
+          fontSize={{
+            base: "20px",
+            sm: "22px",
+            md: "28px",
+            lg: "32px",
+          }}
+          fontWeight={"bold"}
+        >
           Your Rights and Control
         </Text>
       </Center>
-      <Flex alignItems={"center"} justifyContent={"space-between"} mb={100}>
+      <Flex
+        flexDirection={{ base: "column-reverse", md: "row" }}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+      >
         <UnorderedList
           fontFamily={"sans-serif"}
-          fontSize={"16px"}
-          fontWeight={"700"}
-          lineHeight={10}
+          fontSize={{
+            base: "12px",
+            sm: "13px",
+            md: "15px",
+            lg: "16px",
+          }}
+          fontWeight={"600"}
+          mt={{ base: 10, md: 0 }}
+          lineHeight={{ base: "26px", sm: "28px", lg: "40px" }}
         >
           <ListItem>
             You retain control over your data at all times. You can:
@@ -72,7 +115,11 @@ const Section_3 = () => {
             Manage your account settings and adjust your privacy preferences.
           </ListItem>
         </UnorderedList>
-        <Image boxSize="350px" objectFit="cover" src={Img_1} />
+        <Image
+          boxSize={{ base: "270px", lg: "350px" }}
+          objectFit="cover"
+          src={Img_1}
+        />
       </Flex>
     </Box>
   );
