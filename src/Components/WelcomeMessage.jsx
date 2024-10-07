@@ -2,21 +2,45 @@ import { useSelector , useDispatch } from "react-redux"
 import { Flex,Text,Grid,Image,Button} from "@chakra-ui/react"
 import { useEffect } from "react"
 import { displaySharableLinkModal} from "../App/Slices/MainSlice"
+import axios from "axios"
 
 const WelcomeMessage = () => {
+
   const userName = useSelector((state)=>state.slice.UserInfo.name)
   // getting name from userInfo object on redux slice
+  const userTimeZone = useSelector((state)=>state.slice.UserInfo.timeZone);
 
   const sharableLink = useSelector((state)=>state.slice.UserInfo.sharableLink)
   // getting sharable link state from redux store 
+   const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
+   const setTimeZone = async (userTimeZone) => {
+    const apiEndpoint = import.meta.env.VITE_SET_TIMEZONE;
+    const token = localStorage.getItem('token');
+    axios.post(apiEndpoint,
+      {
+        timeZone : userTimeZone
+      },
+      {
+        headers : {
+          'Authorization' : `Bearer ${token}`
+        }
+      })
+   }
+   // call api and set timeZone to the user in database
 
   useEffect(()=>{
     if(sharableLink == 'false') {
       // display generate sharable link modal
       dispatch(displaySharableLinkModal())
     }
+    if (userTimeZone == 'false') {
+      const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      setTimeZone(userTimeZone);
+      // pass user detected timeZone from browser setting as argument to 
+      // setTimeZone function 
+    }
+    
   },[])
 
   const text = {

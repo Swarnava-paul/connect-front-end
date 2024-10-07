@@ -10,7 +10,7 @@ const dispatch = useDispatch();
 
 
   return (
-   <Flex top='0%' ml={2} mt={3} fontSize={28} pos='absolute' display={['flex','flex','flex','none']}>
+   <Flex top='0%' ml={2} zIndex={2000} mt={3} fontSize={28} pos='absolute' display={['flex','flex','flex','none']}>
     <i style={{color:"black"}} className={class_name}
     onClick={()=>{
         if(crossHamburger == false) {

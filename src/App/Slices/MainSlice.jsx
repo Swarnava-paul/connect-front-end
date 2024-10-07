@@ -12,6 +12,9 @@ LoginModalDisplay : 'none',
 LoadingModalDisplay : 'none',
 SharableLinkDisplay : 'none',
 sideBarDisplay : 'none',
+storeSelectedDate : 'none',
+slotsModalDisplay : 'none',
+availability : [],
 };
 
 const reduxSlice = createSlice({
@@ -63,7 +66,28 @@ const reduxSlice = createSlice({
         },
         hideSideBar : (state) => {
             state.sideBarDisplay = 'none'
+        },
+
+        // setters for create availability date and slots ->>
+
+        setStoreSelectedDate : (state,action) => {
+
+            state.storeSelectedDate = action.payload;
+        },
+
+        displaySlotsModal : (state) => {
+            state.slotsModalDisplay = 'flex'
+        },
+        hideSlotsModal : (state) => {
+            state.slotsModalDisplay = 'none'
+        },
+        setAvailability : (state,action)=> {
+            state.availability = action.payload
+        },
+        pushdateToAvailability : (state,action) => {
+            state.availability.push(action.payload)
         }
+        // <<-
     }
 })
 
@@ -73,6 +97,7 @@ displayLoginModal,hideLoginModal,
 displayLoadingModal,hideLoadingModal,
 displaySharableLinkModal,hideSharableLinkModal,
 setSharableLink,displaySideBar,
-hideSideBar} = reduxSlice.actions
+hideSideBar,setStoreSelectedDate,displaySlotsModal
+,hideSlotsModal,setAvailability,pushdateToAvailability} = reduxSlice.actions
 
 export default reduxSlice.reducer;

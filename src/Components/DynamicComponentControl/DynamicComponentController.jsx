@@ -4,7 +4,8 @@ import { createContext , useReducer } from "react";
 //components
 import {CreateAvailability,SharableLink,
 ViewMeetings,
-WelcomeMessage,TimeZone
+WelcomeMessage,
+TimeZone
 } from '../exports'
 
 
@@ -24,9 +25,10 @@ function returnDynamicComponent (state,action) {
     case 'ViewMeetings':{
         return ViewMeetings
     }
-    case 'TimeZone':{
+    case 'TimeZone' : {
         return TimeZone
     }
+
  }
 }
 

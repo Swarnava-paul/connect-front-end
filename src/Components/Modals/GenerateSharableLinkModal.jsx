@@ -15,6 +15,7 @@ const dispatch = useDispatch();
 
 const [generateButtonContent,setGenerateButtonContent] = useState('Generate')
 const [textContent,setTextContent] = useState('Click on Generate to generate Sharable link , with this link any person will able to book an one to one session with you in future')
+const [buttonBgColor,setButtonBgColor] = useState('#4C9FEB')
 
 async function generateSharableLink () {
 
@@ -30,7 +31,8 @@ axios.post(sharableLinkEndpoint,{},{
   }
 }).then((data)=>{
   const {data:{sharable_link}} = data
-  setGenerateButtonContent('Link Generated')
+  setGenerateButtonContent('Link Generated');
+  setButtonBgColor('#73EC8B')
   setTextContent('Link Generated go to Sharable link Menu in Side Bar')
   setTimeout(()=>{
     dispatch(hideSharableLinkModal());
@@ -55,11 +57,11 @@ axios.post(sharableLinkEndpoint,{},{
   return (
     <Flex display={GeneratesharableLinkModalDisplay} position='absolute' justify='center' align='center' top='0%' w='100%' h='100vh'
      bg='rgb(0, 0, 0 , 0.8)'>
-       <Box bg='white' w='40%'  borderRadius={10}  display='grid' h='40vh' p={20} placeItems='center'>
+       <Box bg='white' w={['90%','90%','50%','40%']}  borderRadius={10}  display='grid' h='40vh' p={5} placeItems='center'>
         <Text textAlign='center' fontFamily='sans-serif' fontSize={14} mt={30}>
          {textContent}
         </Text>
-        <Button border='none' w='20%' h='2.4rem' borderRadius={6} bg='#4C9FEB' color='white'
+        <Button border='none' w='30%' p={2} h='2.4rem' borderRadius={6} bg={buttonBgColor} color='white'
         onClick={()=>generateSharableLink()}>
           {generateButtonContent}
         </Button>

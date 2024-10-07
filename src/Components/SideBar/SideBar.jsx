@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsCalendar3 , BsLink45Deg , BsClockHistory , BsShieldCheck} from "react-icons/bs";
 //redux
-import { useSelector } from "react-redux";
+import { useSelector} from "react-redux";
+import {HamburgerIcon} from '../exports'
 
 const SideBar = () => {
 
@@ -28,7 +29,7 @@ const SideBar = () => {
    height:"100vh",
    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
    display : [sideBarDisplay,sideBarDisplay,sideBarDisplay,'grid','grid'],
-   position:['absolute','absolute','absolute','static']
+   position:['absolute','absolute','absolute','static'],
   }; /// parent grid styles
 
   const arrButtons = {
@@ -55,7 +56,7 @@ const SideBar = () => {
   }
 
   return (
-     <Grid sx={parentGrid}>
+     <Grid sx={parentGrid} zIndex={[2000,2000,2000,0]}>
      <Button gap={2} margin='auto' h='8vh'
       color='white' mt={[20,20,20,10]} borderRadius={20} 
       bg='RGB(0, 96, 230)'w='90%' border='none' onClick={()=>requestDynamicComponent({type:'CreateAvailability'})}>
