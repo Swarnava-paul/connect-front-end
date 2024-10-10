@@ -8,17 +8,17 @@ const TimeZone = () => {
   return (
     <>
       <Grid
+        gridTemplateRows={"repeat(6, 1fr)"}
+        w={"100%"}
         h={"100vh"}
         placeItems={"center"}
-        alignItems={"flex-end"}
-        py={30}
-        px={10}
+        alignContent={"center"}
       >
-        <Flex flexDirection={"column"}>
+        <Flex gridRowStart={"3"} flexDirection={"column"}>
           <Center
             fontFamily={"sans-serif"}
             fontSize={{
-              base: "20px",
+              base: "18px",
               sm: "22px",
               md: "28px",
               lg: "32px",
@@ -32,6 +32,7 @@ const TimeZone = () => {
           </Center>
         </Flex>
         <Center
+          gridRowStart={"6"}
           textAlign={"center"}
           w={{ base: "300px", sm: "400px", md: "500px", lg: "610px" }}
           p={7}

@@ -13,6 +13,7 @@ const SharableLink = () => {
   // COPY BUTTON CLICK FUNCION
   const handleClick = () => {
     setcopied(true);
+    navigator.clipboard.writeText(sharableLink);
     setTimeout(() => {
       setcopied(false);
     }, 5000);
@@ -20,30 +21,32 @@ const SharableLink = () => {
 
   return (
     <Grid
-      placeItems={"center "}
-      py={30}
-      px={10}
-      alignItems={"flex-end"}
+      gridTemplateRows={"repeat(6, 1fr)"}
+      w={"100%"}
       h={"100vh"}
+      placeItems={"center"}
+      alignContent={"center"}
     >
-      <Flex gap={10} flexDirection={"column"} alignItems={"center"}>
-        <Box>
+      <Flex gridRowStart={3} flexDirection={"column"} alignItems={"center"}>
+        <Box as={"test"}>
           <Flex
             fontFamily={"sans-serif"}
             fontSize={{
-              base: "20px",
-              sm: "22px",
-              md: "28px",
-              lg: "32px",
+              base: "12px",
+              sm: "16px",
+              md: "20px",
+              lg: "24px",
             }}
             fontWeight={"bold"}
-            columnGap={5}
+            columnGap={3}
+            mr={1}
             mb={7}
             flexDirection={{ base: "column", lg: "row" }}
+            alignItems={"center"}
           >
             <Text>Your Sharable Link is: </Text>
 
-            <Text flex={1} color="#4C9FEB">
+            <Text flex={1} w={"100vws"} color="#4C9FEB">
               {sharableLink}
             </Text>
           </Flex>
@@ -51,13 +54,13 @@ const SharableLink = () => {
             <Button
               fontFamily={"sans-serif"}
               fontSize={{
-                base: "12px",
-                sm: "13px",
-                md: "15px",
+                base: "11px",
+                sm: "12px",
+                md: "13px",
                 lg: "17px",
               }}
               fontWeight={"600"}
-              w={"136px"}
+              w={{ base: "95px", sm: "110px", md: "130", lg: "136px" }}
               color={"white"}
               py={"10px"}
               borderRadius={"md"}
@@ -70,17 +73,17 @@ const SharableLink = () => {
         </Box>
       </Flex>
       <Box
-        textAlign={"center"}
-        width={{ base: "300px", md: "500px", lg: "610px" }}
+        gridRowStart={"6"}
+        width={{ base: "330px", sm: "440px", md: "500px", lg: "610px" }}
         p={7}
         bg={"#9D9FA2"}
         color={"white"}
         borderRadius={"md"}
         fontFamily={"sans-serif"}
         fontSize={{
-          base: "12px",
-          sm: "13px",
-          md: "15px",
+          base: "10px",
+          sm: "11px",
+          md: "12px",
           lg: "15px",
         }}
         fontWeight={"600"}
@@ -93,3 +96,8 @@ const SharableLink = () => {
 };
 
 export default SharableLink;
+// placeItems={"center "}
+//       py={30}
+//       px={10}
+//       alignItems={"flex-end"}
+//       h={"100vh"}
