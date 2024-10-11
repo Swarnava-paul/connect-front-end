@@ -12,7 +12,7 @@ const AllRoutes = () => {
     <Suspense fallback={<></>}>
      <Routes>
         <Route path='/' element={<Dashboard/>}/>
-        <Route path="/viewSharable" element={<ViewSharableLink/>}/>
+        <Route path="/Sharable/:id" element={<ViewSharableLink/>}/>
         <Route path='/privacy&policy' element={<PrivacyAndPolicy/>}/>
         <Route path="*" element={<>Page not Found Component...</>}/>
      </Routes>
