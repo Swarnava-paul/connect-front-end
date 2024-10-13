@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
-import { useEffect} from "react";
-import { displayLoadingModal , hideLoadingModal} from "../App/Slices/MainSlice";
+import { useEffect , useState} from "react";
+import { displayLoadingModal , hideLoadingModal, setAvailability} from "../App/Slices/MainSlice";
 import { useDispatch } from "react-redux";
 
 const ViewSharableLink = () => {
@@ -9,13 +9,28 @@ const ViewSharableLink = () => {
   // id from url 
 
   const dispatch = useDispatch();
+  const [hostInfo,setHostInfo] = useState({name:"",email:"",availability:[]})
 
-  const fetchHostAvailability = async () => {
+  const fetchHostAvailability = async (bookerTimeZone) => {
+
+    const url = `${import.meta.env.VITE_FETCH_HOST_AVAILABILITY_SLOTS}?id=${id}&bookerTimeZone=${bookerTimeZone}`;
+
     dispatch(displayLoadingModal());
     try {
       //
+      const response = await fetch(url);
+      const {info:{name,email,convertedAvailability}} = await response.json();
+      setHostInfo({
+        ...hostInfo,
+        name,
+        email,
+        availability : convertedAvailability
+      })
+      dispatch(hideLoadingModal());
     }catch(error) {
       //
+      console.log(error)
+      dispatch(hideLoadingModal());
     }
     
   }

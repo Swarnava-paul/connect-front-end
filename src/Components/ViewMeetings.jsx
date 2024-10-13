@@ -19,6 +19,9 @@ const ViewMeetings = () => {
         return i;
       }
     })
+    if(filtered.length == 0) {
+      setNoSessions('No Upcoming sessions')
+    }
     setSessions(filtered); // set only upcoming session for host 
   } // function for filtering only upcoming sessions 
   
@@ -35,10 +38,14 @@ const ViewMeetings = () => {
           'Authorization' : `Bearer ${token}`
         }
       },{});
-
+      let event = []
       const {events} = await response.json();
-      if (events.length > 0) {
-        filterUpcomingSessionsOnly(events);
+      if (events != null || events != undefined) {
+        event = [...events]
+      }
+      if (event.length > 0) {
+         console.log('yes')
+         filterUpcomingSessionsOnly(event);
          dispatch(hideLoadingModal());
       }else {
         dispatch(hideLoadingModal());
@@ -56,7 +63,7 @@ const ViewMeetings = () => {
 
   return (
     <Grid mt={20} border='1px solid red' placeItems='center'>
-     <Text>{noSessions}</Text>
+     <Text>{noSessions}</Text> {/** this text is important */}
       {
          sessions.map((i,index)=>(
           <p key={index}>{i.bookerInfo.bookerName}</p> // example
