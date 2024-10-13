@@ -24,7 +24,7 @@ const ViewMeetings = () => {
     }
     setSessions(filtered); // set only upcoming session for host 
   } // function for filtering only upcoming sessions 
-  
+  console.log(sessions)
 
   const fetchUpcomingSessions = async() => {
     dispatch(displayLoadingModal()); // display loading modal
