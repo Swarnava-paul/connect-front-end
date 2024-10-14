@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { Flex, Text } from "@chakra-ui/react";
-import { Grid } from "@chakra-ui/react";
+import { Box, Grid, Text } from "@chakra-ui/react";
+
 import { displayLoadingModal, hideLoadingModal } from "../App/Slices/MainSlice";
 import { useDispatch } from "react-redux";
 import Card from "./MeetingCard/Card";
@@ -65,69 +65,42 @@ const ViewMeetings = () => {
     fetchUpcomingSessions();
   }, []);
 
-  const scrollRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  const onMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const onMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const onMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const onMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // The "2" is for scroll speed
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
-
   return (
     <>
-      <Grid
-        minHeight={"100vh"}
-        placeItems={"center"}
-        gridAutoFlow={{ base: "row", md: "column" }}
-        userSelect={"none"}
-        justifyContent={{ base: "normal", md: "center" }}
-        py={{ base: 10, md: 0 }}
-      >
-        <Text justifySelf={"center"} fontSize={"24px"} fontWeight={"500"}>
+      <Box maxH="100vh" overflowY="auto" pr={4}>
+        <Text
+          textAlign={"center"}
+          fontSize={{
+            base: "18px",
+            sm: "20px",
+            lg: "23px",
+          }}
+          fontWeight={"500"}
+          mt={noSessions ? 20 : 0}
+        >
           {noSessions}
         </Text>
-        <Flex
-          ref={scrollRef}
-          onMouseDown={onMouseDown}
-          onMouseLeave={onMouseLeave}
-          onMouseUp={onMouseUp}
-          onMouseMove={onMouseMove}
-          _active={{ cursor: "grabbing" }}
-          flexDir={{ base: "column", md: "row" }}
-          width={"min(82%, 100%)"}
-          gap={10}
-          style={{
-            whiteSpace: "nowrap",
-            overflowX: "auto",
-            overflowY: "hidden",
-            scrollbarWidth: "thin",
+        <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            "2xl": "repeat(3, 1fr)",
           }}
-          py={10}
+          gap={10}
+          py={"50px"}
+          placeItems={{
+            base: "center",
+            lg: "start",
+            xl: "center",
+          }}
         >
-          {sessions.map((i, index) => (
-            <Card key={index} data={i} />
+          {sessions.map((item, index) => (
+            <Card key={index} data={item}>
+              {item}
+            </Card>
           ))}
-        </Flex>
-      </Grid>
+        </Grid>
+      </Box>
     </>
   );
 };

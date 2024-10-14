@@ -17,10 +17,6 @@ const Card = ({ data }) => {
     hour12: true,
   });
 
-  console.log("orignal:", data.sessionInfo.StartDateAndTime);
-  console.log("time:", formattedTime);
-  console.log("date:", formattedDate);
-
   return (
     <Flex
       flexDirection={"column"}
@@ -30,13 +26,21 @@ const Card = ({ data }) => {
       rounded={"md"}
       p={{ base: 2, md: 5 }}
       gap={5}
-      minW={{ base: "17rem", sm: "18rem", md: "24rem" }}
+      minW={{
+        base: "17rem",
+        sm: "20rem",
+        md: "21rem",
+        lg: "20rem",
+        xl: "24rem",
+        "2xl": "22rem",
+      }}
       fontFamily={"sans-serif"}
       fontSize={{
         base: "14px",
-        sm: "16px",
-        md: "18px",
-        lg: "20px",
+        sm: "15px",
+        md: "17px",
+        lg: "18px",
+        xl: "20px",
       }}
       fontWeight={"500"}
       boxShadow={"0px 0px 5px 1px rgba(0,0,0,0.47);"}
@@ -51,11 +55,10 @@ const Card = ({ data }) => {
       <Text>Time - {formattedTime}</Text>
 
       <Button
-        w={"8rem"}
+        w={"6rem"}
         color={"white"}
         bg={"#4C9FEB"}
         py={2}
-        px={9}
         rounded={"md"}
         alignSelf={"end"}
       >
