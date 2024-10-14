@@ -17,9 +17,6 @@ const Card = ({ data }) => {
     hour12: true,
   });
 
-  console.log("orignal:", data.sessionInfo.StartDateAndTime);
-  console.log("time:", formattedTime);
-  console.log("date:", formattedDate);
 
   return (
     <Flex
