@@ -67,7 +67,12 @@ const ViewMeetings = () => {
 
   return (
     <>
-      <Box maxH="100vh" overflowY="auto" pr={4}>
+      <Box
+        maxH="100vh"
+        overflowY="auto"
+        // pr={{ base: 0, lg: 0, "2xl": 4 }}
+        px={{ base: 0, lg: 2, "2xl": 4 }}
+      >
         <Text
           textAlign={"center"}
           fontSize={{
@@ -84,9 +89,9 @@ const ViewMeetings = () => {
           templateColumns={{
             base: "repeat(1, 1fr)",
             md: "repeat(2, 1fr)",
-            "2xl": "repeat(3, 1fr)",
+            lg: "repeat(3, 1fr)",
           }}
-          gap={10}
+          gap={{ base: 10, lg: 4, "2xl": 10 }}
           py={"50px"}
           placeItems={{
             base: "center",

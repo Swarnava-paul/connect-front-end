@@ -21,26 +21,24 @@ const Card = ({ data }) => {
     <Flex
       flexDirection={"column"}
       borderTop={"12px solid #4C9FEB"}
-      borderX={"1px solid"}
-      borderBottom={"1px solid"}
       rounded={"md"}
       p={{ base: 2, md: 5 }}
-      gap={5}
+      gap={{ base: 5, lg: 3, "2xl": 5 }}
       minW={{
-        base: "17rem",
-        sm: "20rem",
-        md: "21rem",
-        lg: "20rem",
-        xl: "24rem",
+        base: "15rem",
+        sm: "18rem",
+        md: "19rem",
+        lg: "14rem",
+        xl: "18rem",
         "2xl": "22rem",
       }}
       fontFamily={"sans-serif"}
       fontSize={{
-        base: "14px",
-        sm: "15px",
-        md: "17px",
-        lg: "18px",
-        xl: "20px",
+        base: "13px",
+        sm: "14px",
+        md: "15px",
+        lg: "14px",
+        "2xl": "20px",
       }}
       fontWeight={"500"}
       boxShadow={"0px 0px 5px 1px rgba(0,0,0,0.47);"}
@@ -55,10 +53,10 @@ const Card = ({ data }) => {
       <Text>Time - {formattedTime}</Text>
 
       <Button
-        w={"6rem"}
+        w={{ base: "5rem", lg: "4rem", xl: "5rem", "2xl": "6rem" }}
         color={"white"}
         bg={"#4C9FEB"}
-        py={2}
+        py={{ base: 2, lg: 1, xl: 2 }}
         rounded={"md"}
         alignSelf={"end"}
       >
