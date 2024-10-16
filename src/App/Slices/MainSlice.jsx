@@ -15,6 +15,19 @@ sideBarDisplay : 'none',
 storeSelectedDate : 'none',
 slotsModalDisplay : 'none',
 availability : [],
+hamburgerIcon : 'absolute',
+hostAvailabilityHolder : [],
+userSelectedDateOnHostAvailability : "",
+slotsModalForBookerDisplay : 'none',
+bookingDetailsObject : {
+id:"",
+startTime:"",
+bookerEmail:"",
+bookerName:"",
+bookerTimeZone:"",
+slotId:"",
+availabilityId:""
+}
 };
 
 const reduxSlice = createSlice({
@@ -52,6 +65,10 @@ const reduxSlice = createSlice({
             state.LoadingModalDisplay = 'none'
         },
 
+        hideHamburgerIcon : (state) => {
+            state.hamburgerIcon = 'static'
+        },///////////
+
         displaySharableLinkModal : (state) => {
             state.SharableLinkDisplay = 'flex'
         },
@@ -86,8 +103,28 @@ const reduxSlice = createSlice({
         },
         pushdateToAvailability : (state,action) => {
             state.availability.push(action.payload)
-        }
+        },
         // <<-
+
+        setHostAvailabilityData : (state,action) => {
+          state.hostAvailabilityHolder = action.payload
+        },
+        setUserSelectedDateOnHostAvailability : (state,action) => {
+            state.userSelectedDateOnHostAvailability = action.payload;
+        },
+        displaySlotsModalForBookerDisplay : (state) => {
+            state.slotsModalForBookerDisplay = 'grid'
+        },
+        hideSlotsModalForBookerDisplay : (state) => {
+            state.slotsModalForBookerDisplay = 'none'
+        },
+
+        setBookingDetailsObject : (state,action) => {
+            state.bookingDetailsObject = {
+                ...state.bookingDetailsObject,
+                ...action.payload
+            }
+        }
     }
 })
 
@@ -98,6 +135,8 @@ displayLoadingModal,hideLoadingModal,
 displaySharableLinkModal,hideSharableLinkModal,
 setSharableLink,displaySideBar,
 hideSideBar,setStoreSelectedDate,displaySlotsModal
-,hideSlotsModal,setAvailability,pushdateToAvailability} = reduxSlice.actions
+,hideSlotsModal,setAvailability,pushdateToAvailability,
+hideHamburgerIcon,setHostAvailabilityData,setUserSelectedDateOnHostAvailability , displaySlotsModalForBookerDisplay
+, hideSlotsModalForBookerDisplay,setBookingDetailsObject} = reduxSlice.actions
 
 export default reduxSlice.reducer;

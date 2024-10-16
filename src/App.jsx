@@ -7,7 +7,8 @@ import AllRoutes from './Routes/AllRoutes'
 //modals
 import { LoginModal , LoadingModal ,
 GenerateSharableLinkModal,
-SlotsModal,HamburgerIcon
+SlotsModal,HamburgerIcon,
+SlotsModalForBooker
 } from './Components/exports'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <LoginModal/>
     <LoadingModal/>
     <GenerateSharableLinkModal/>
+    <SlotsModalForBooker/>
     <SlotsModal/>
     </>
   )
