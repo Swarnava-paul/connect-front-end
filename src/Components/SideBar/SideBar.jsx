@@ -8,7 +8,9 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { BsCalendar3 , BsLink45Deg , BsClockHistory , BsShieldCheck} from "react-icons/bs";
 //redux
 import { useSelector} from "react-redux";
-import {HamburgerIcon} from '../exports'
+
+import { useDispatch } from "react-redux";
+import { hideSideBar } from "../../App/Slices/MainSlice";
 
 const SideBar = () => {
 
@@ -16,6 +18,8 @@ const SideBar = () => {
   const {requestDynamicComponent} = React.useContext(DynamicComponentContext);
   // redux
   const sideBarDisplay = useSelector((state)=>state.slice.sideBarDisplay);
+
+  const reduxDispatch = useDispatch()
   
   const [previousEvent,setPreviousEvent] = useState()
   const arr = [
@@ -59,7 +63,11 @@ const SideBar = () => {
      <Grid sx={parentGrid} zIndex={[2000,2000,2000,0]}>
      <Button gap={2} margin='auto' h='8vh'
       color='white' mt={[20,20,20,10]} borderRadius={20} 
-      bg='RGB(0, 96, 230)'w='90%' border='none' onClick={()=>requestDynamicComponent({type:'CreateAvailability'})}>
+      bg='RGB(0, 96, 230)'w='90%' border='none'
+      onClick={()=>{
+        requestDynamicComponent({type:'CreateAvailability'});
+        reduxDispatch(hideSideBar())
+      }}>
         <AiOutlinePlus />
         Create Availability Slot
       </Button>
@@ -70,7 +78,8 @@ const SideBar = () => {
           onClick={(e)=>{
             requestDynamicComponent({type:dispatch});
             setPreviousEvent(e.target)
-            determineButtonBackgroundColor(e)
+            determineButtonBackgroundColor(e);
+            reduxDispatch(hideSideBar())
            }}>
             <Icon/>
             {name}
