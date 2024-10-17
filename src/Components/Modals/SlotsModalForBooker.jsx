@@ -1,7 +1,7 @@
 import { useSelector , useDispatch } from "react-redux"
 import { Grid , Button , Text , Flex , Box} from "@chakra-ui/react";
 import { useState , useEffect} from "react";
-import { hideSlotsModalForBookerDisplay , setBookingDetailsObject } from "../../App/Slices/MainSlice";
+import { hideSlotsModalForBookerDisplay , setBookingDetailsObject , displayBookingFormModalDisplay } from "../../App/Slices/MainSlice";
 
 
 const SlotsModalForBooker = () => {
@@ -33,7 +33,7 @@ const SlotsModalForBooker = () => {
       <Grid bg='white' w='40%' height='85vh' margin='auto' borderRadius={10} overflowY='scroll' p={4}>
       <Button onClick={()=>dispatch(hideSlotsModalForBookerDisplay())}
        color='black' pos='absolute'
-      margin='1% 0% 0% 2%' fontSize={30}>{crossSymbol}</Button>
+      margin='1% 0% 0% 2%' fontSize={30}  _hover={{transform:"scaleX(1.1)",transition:"0.10s"}} >{crossSymbol}</Button>
       <Text mt={10} textAlign='center'>Select Time Slot for {selectedDate}</Text>
       <Grid mt={1} placeItems='center'>
         {
@@ -54,8 +54,10 @@ const SlotsModalForBooker = () => {
               <Flex key={index} color='black' mt={10} gap={2}  w='90%' justify='center' justifyContent='space-between'>
               <Box bg='whitesmoke' fontSize={17} fontWeight='500' w='30%' p={3} textAlign='center' borderRadius={4}>{formattedStartTime}</Box>
               <Box bg='whitesmoke' fontSize={17} fontWeight='500' w='30%' p={3} textAlign='center' borderRadius={4}>{formattedEndTime}</Box>
-              <Button bg='#4C9FEB' w='30%' color='white' borderRadius={4} onClick={()=>{
-                dispatch(setBookingDetailsObject({slotId:i._id,startTime:i.start}))
+              <Button bg='#4C9FEB' w='30%' color='white' borderRadius={4} _hover={{transform:"scaleX(1.1)",transition:"0.10s"}} onClick={()=>{
+                dispatch(setBookingDetailsObject({slotId:i._id,startTime:i.start}));
+                dispatch(hideSlotsModalForBookerDisplay())
+                dispatch(displayBookingFormModalDisplay())
               }}>Select</Button>
             </Flex>
             )

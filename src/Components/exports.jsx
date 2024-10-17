@@ -5,6 +5,7 @@ import LoadingModal from "./Modals/LoadingModal";
 import GenerateSharableLinkModal from "./Modals/GenerateSharableLinkModal";
 import SlotsModal from "./Modals/SlotsModal";
 import SlotsModalForBooker from "./Modals/SlotsModalForBooker";
+import BookingFormModal from './Modals/BookinFormModal'
 // components that will be used in Main Section
 import CreateAvailability from './CreateAvailability'
 import SharableLink from './SharableLink'
@@ -19,4 +20,4 @@ MainSection,CreateAvailability,
 SharableLink,ViewMeetings,
 WelcomeMessage,TimeZone,LoadingModal,
 GenerateSharableLinkModal,HamburgerIcon,
-SlotsModal,SlotsModalForBooker}
+SlotsModal,SlotsModalForBooker,BookingFormModal}

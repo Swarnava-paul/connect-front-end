@@ -27,7 +27,8 @@ bookerName:"",
 bookerTimeZone:"",
 slotId:"",
 availabilityId:""
-}
+},
+bookingFormModalDisplay : 'none'
 };
 
 const reduxSlice = createSlice({
@@ -124,6 +125,12 @@ const reduxSlice = createSlice({
                 ...state.bookingDetailsObject,
                 ...action.payload
             }
+        },
+        displayBookingFormModalDisplay : (state) => {
+            state.bookingFormModalDisplay = 'grid'
+        },
+        hideBookingFormModalDisplay : (state) => {
+            state.bookingFormModalDisplay = 'none'
         }
     }
 })
@@ -137,6 +144,7 @@ setSharableLink,displaySideBar,
 hideSideBar,setStoreSelectedDate,displaySlotsModal
 ,hideSlotsModal,setAvailability,pushdateToAvailability,
 hideHamburgerIcon,setHostAvailabilityData,setUserSelectedDateOnHostAvailability , displaySlotsModalForBookerDisplay
-, hideSlotsModalForBookerDisplay,setBookingDetailsObject} = reduxSlice.actions
+, hideSlotsModalForBookerDisplay,setBookingDetailsObject,
+displayBookingFormModalDisplay,hideBookingFormModalDisplay} = reduxSlice.actions
 
 export default reduxSlice.reducer;
