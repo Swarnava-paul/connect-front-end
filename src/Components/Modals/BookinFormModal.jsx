@@ -12,6 +12,7 @@ const BookinFormModal = () => {
     const bookingDetailsObject = useSelector((state)=>state.slice.bookingDetailsObject);
     const [bookingState,setBookingState] = useState();
     const [bookingResponse,setBookingResponse] = useState()
+    const [bookSessionButton,setBookSessionButton] = useState('Book Session')
     const dispatch = useDispatch();
     const handleForm = (e) => {
           dispatch(setBookingDetailsObject({[e.target.name]:e.target.value}));
@@ -44,6 +45,7 @@ const BookinFormModal = () => {
            // alert('Error During Booking Session please Try again');
             setBookingState(false)
           }
+          setBookSessionButton('Book session');
     }
     
 
@@ -56,7 +58,10 @@ const BookinFormModal = () => {
         <input type="text" name='bookerName' style={{width:"80%",border:"1px solid black",height:"10vh",outline:"none",borderRadius:"6px"}} placeholder="Enter your name"/>
         <input type="email" name='bookerEmail' style={{width:"80%",border:"1px solid black",height:"10vh",outline:"none",borderRadius:"6px"}} placeholder="Enter your Email"/>
         <Button bg='#4C9FEB' h='7vh' fontSize={15} p={5} 
-        borderRadius={6}  color='white' onClick={()=>bookSession()}>Book Session</Button>
+        borderRadius={6}  color='white' onClick={()=>{
+          bookSession();
+          setBookSessionButton(<i style={{fontSize:25}} className="fa-solid fa-spinner fa-spin"></i>)
+        }}>{bookSessionButton}</Button>
      </Grid>
      {
       (bookingState == true ? (<BookingSuccessFull bookingResponse={bookingResponse}/>) : bookingState == false ?
