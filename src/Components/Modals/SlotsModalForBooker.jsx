@@ -29,8 +29,8 @@ const SlotsModalForBooker = () => {
     
   return (
     <>
-    <Grid display={SlotsModalForBookerDisplay} w='100%' h='110vh' pos='absolute' top='-8%' bg='rgb(0,0,0,0.6)' zIndex={2000}>
-      <Grid bg='white' w='40%' height='85vh' margin='auto' borderRadius={10} overflowY='scroll' p={4}>
+    <Grid display={SlotsModalForBookerDisplay} w='100%' h='108vh' pos='absolute' position='fixed' top='-8%' bg='rgb(0,0,0,0.6)' zIndex={2000}>
+      <Grid bg='white'  w={['100%','80%','60%','40%']} height='85vh' margin='auto' borderRadius={10} overflowY='scroll' p={4}>
       <Button onClick={()=>dispatch(hideSlotsModalForBookerDisplay())}
        color='black' pos='absolute'
       margin='1% 0% 0% 2%' fontSize={30}  _hover={{transform:"scaleX(1.1)",transition:"0.10s"}} >{crossSymbol}</Button>

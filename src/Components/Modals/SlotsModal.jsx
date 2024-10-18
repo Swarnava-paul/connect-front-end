@@ -55,7 +55,7 @@ const mainFlex = {
  
 const boxContainer = {
     backgroundColor :"white",
-    width:"40%",
+    width:['95%','80%','50%','60%',"40%"],
     padding :10,
     rowGap : 10,
     marginTop : 5,
@@ -109,14 +109,14 @@ axios.post(apiEndpoint,body,{
     <Box sx={boxContainer}>
 
         <Text textAlign='center' fontWeight='600'>Select Time Slots for {selectedDate}</Text>
-        <Button w='15%' h='8vh' color='white' borderRadius={5} fontSize={19} bg='#4C9FEB' 
+        <Button w={['20%','25%','20%','15%']} h='6vh' color='white' borderRadius={5} fontSize={19} bg='#4C9FEB' 
         onClick={()=>dispatch(hideSlotsModal())}>Close</Button>
       {
        times.map(({start,end},index)=>(
         <EachSlot key={index} start={start} index={index} end={end} setSlots={setSlots} slots={slots}/>
        ))
       }
-      <Button pos='absolute' borderRadius={6} m='31% 0% 20% 24%'
+      <Button pos='absolute' borderRadius={6} m={['130% 0% 20% 50%','100% 0% 20% 45%','55% 0% 20% 29%','40% 0% 20% 44%','31% 0% 20% 24%']}
       fontSize={15} color='white'  bg='#4C9FEB' w='120px' h='8vh' onClick={()=>{
        createAvailability();
       }}>Submit</Button>
